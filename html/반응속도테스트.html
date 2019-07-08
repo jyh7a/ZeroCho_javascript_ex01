@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>반응속도테스트</title>
+	<style>
+		#screen{
+			margin: 200px auto;
+			width: 500px;
+			height: 300px;
+			text-align: center;
+			font-size: 40px;
+			font-family: '나눔고딕';
+			user-select: none;
+			transition: 0.2s;
+		}
+		#screen.waiting{
+			background-color: aqua;
+		}
+		#screen.ready{
+			background-color: red;
+			color: white;
+		}
+		#screen.now{
+			background-color: greenyellow;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="screen" class="waiting">클릭해서 시작하세요!</div>
+	<script src="../js/%EB%B0%98%EC%9D%91%EC%86%8D%EB%8F%84%ED%85%8C%EC%8A%A4%ED%8A%B8.js"></script>
+</body>
+</html>

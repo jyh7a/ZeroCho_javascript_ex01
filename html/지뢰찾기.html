@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>	
+	<style>
+		*{user-select: none;}
+		table{
+			border-collapse: collapse;
+		}
+		td{
+			border: 1px solid #000;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			background: #7b7b7b;
+		}
+		td.opened{
+			background: white;
+		}
+		td.flag{
+			background: red;
+		}
+		td.question{
+			background: orange;
+		}
+	</style>
+</head>
+
+<body>	
+	<input id="hor"	type="text" placeholder="가로" value="10">
+	<input id="ver"	type="text" placeholder="세로" value="10">
+	<input id="mine"	type="text" placeholder="지로l" value="20">
+	<button id="exec">실행</button>
+	<table id="table">
+		<thead>
+			<tr>
+				<td><span id="timer">0</span>초</td>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+	<div id="result"></div>
+	
+	<script src="../js/commonFunction.js"></script>
+	<script src="../js/%EC%A7%80%EB%A2%B0%EC%B0%BE%EA%B8%B0.js"></script>
+</body>
+
+</html>
