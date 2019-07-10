@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>짝마추기</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html{
+      width: 100%;
+      height: 100%;
+    }
+    body {     
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content:center;
+      align-items: center
+    }
+
+    .card-wrap {
+      width: 740px;
+      height: 776px;   
+    }
+
+    .card {
+      display: inline-block;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      width: 170px;
+      height: 243px;
+      perspective: 340px;
+    }
+
+    .card:nth-of-type(4n) {
+      margin-right: 0;
+    }
+
+    .card:nth-of-type(9){
+      
+    }  
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front {
+      background: navy;
+    }
+
+    .card-front,
+    .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #000;
+      backface-visibility: hidden;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: gainsboro;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <div class="card">
+    <div class="card-inner">
+      <div class="card-front">
+        앞
+      </div>
+      <div class="card-back">
+        뒤
+      </div>
+    </div>
+  </div> -->
+  <script src="../js/짝맞추기.js"></script>
+
+</body>
+
+</html>
