@@ -5,6 +5,10 @@ var 색깔 = [];
 var 클릭플래그 = true;
 var 클릭카드 = [];
 var 완성카드 = [];
+var 시작시간; 
+
+var timer;
+var second = 0;
 
 for (var i = 0; 색깔후보.length > 0; i += 1) {
   색깔 = 색깔.concat(색깔후보.splice(Math.floor(Math.random() * 색깔후보.length), 1));
@@ -12,6 +16,8 @@ for (var i = 0; 색깔후보.length > 0; i += 1) {
 console.log(색깔);
 
 function 카드세팅(가로, 세로) {
+  var timerEle = document.querySelector('.timer');
+
   클릭플래그 = false;
   var card_wrap = document.createElement('div');
   card_wrap.className = 'card-wrap';
@@ -43,6 +49,18 @@ function 카드세팅(가로, 세로) {
               완성카드.push(클릭카드[0]);
               완성카드.push(클릭카드[1]);
               클릭카드 = [];
+              if(완성카드.length === 가로 * 세로){
+                var 끝시간 = new Date();                
+                clearInterval(timer);
+                alert('축하해 성공했쪄' + (끝시간 - 시작시간) / 1000 + '초 걸렸습니다.');
+                document.querySelector('#wrapper').innerHTML = '';
+                timerEle.textContent = '';
+                second = 0;
+                완성카드 = [];
+                setTimeout(function(){
+                  카드세팅(가로, 세로);
+                }, 1000)
+              }
             } else { // 두 카드의 색깔이 다르면
               클릭플래그 = false;
               setTimeout(function () {
@@ -59,7 +77,7 @@ function 카드세팅(가로, 세로) {
       })
     })(card);
   } // for
-  document.body.appendChild(card_wrap);
+  document.querySelector('#wrapper').appendChild(card_wrap);
 
   // 카드 1초부터 돌아가면서 초기셋팅
   document.querySelectorAll('.card').forEach(function (card, index) {
@@ -73,7 +91,14 @@ function 카드세팅(가로, 세로) {
     document.querySelectorAll('.card').forEach(function (card, index) {
       setTimeout(function () {
         card.classList.remove('flipped');
-        if (index === 0) 클릭플래그 = true;
+        if (index === 0) {
+          시작시간 = new Date();
+          클릭플래그 = true;
+          timer = setInterval(function(){
+            second += 1;
+            timerEle.textContent = second + '초';
+          }, 1000)
+        }
       }, 1100 - 100 * index);
     });
   }, 4000);
