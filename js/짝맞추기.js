@@ -1,6 +1,7 @@
 var 가로 = 4;
 var 세로 = 3;
-var 색깔후보 = ['red', 'red', 'orange', 'orange', 'green', 'green', 'yellow', 'yellow', 'white', 'white', 'pink', 'pink'];
+var 색깔들 = ['red', 'red', 'orange', 'orange', 'green', 'green', 'yellow', 'yellow', 'white', 'white', 'pink', 'pink'];
+var 색깔후보 = 색깔들.slice();
 var 색깔 = [];
 var 클릭플래그 = true;
 var 클릭카드 = [];
@@ -10,10 +11,16 @@ var 시작시간;
 var timer;
 var second = 0;
 
-for (var i = 0; 색깔후보.length > 0; i += 1) {
-  색깔 = 색깔.concat(색깔후보.splice(Math.floor(Math.random() * 색깔후보.length), 1));
+// 색깔들.forEach(function(item, index){
+//   색깔후보 = 색깔후보.concat(item);
+// });
+function 셔플(){
+  for (var i = 0; 색깔후보.length > 0; i += 1) {
+    색깔 = 색깔.concat(색깔후보.splice(Math.floor(Math.random() * 색깔후보.length), 1));
+  }
 }
-console.log(색깔);
+
+
 
 function 카드세팅(가로, 세로) {
   var timerEle = document.querySelector('.timer');
@@ -55,8 +62,11 @@ function 카드세팅(가로, 세로) {
                 alert('축하해 성공했쪄' + (끝시간 - 시작시간) / 1000 + '초 걸렸습니다.');
                 document.querySelector('#wrapper').innerHTML = '';
                 timerEle.textContent = '';
+                색깔후보 = 색깔들.slice();
                 second = 0;
                 완성카드 = [];
+                색깔 = [];
+                셔플();
                 setTimeout(function(){
                   카드세팅(가로, 세로);
                 }, 1000)
@@ -104,4 +114,5 @@ function 카드세팅(가로, 세로) {
   }, 4000);
 } // 카드세팅
 
+셔플();
 카드세팅(가로, 세로);
