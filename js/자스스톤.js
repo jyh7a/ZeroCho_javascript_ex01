@@ -6,6 +6,8 @@ var 상대 = {
   덱data: [],
   영웅data: [],
   필드data: [],
+  선택카드: null,
+  선택카드data: null,
 }
 
 var 나 = {
@@ -16,6 +18,8 @@ var 나 = {
   덱data: [],
   영웅data: [],
   필드data: [],
+  선택카드: null,
+  선택카드data: null,
 }
 
 var 턴표시 = document.getElementById('turn-arrow');
@@ -24,6 +28,10 @@ var 턴 = true; // true면 내턴, false 면 니턴 둘다 아니면 샘헤밍�
 
 function 덱에서필드로(데이터, 내턴) {
   var 객체 = 내턴 ? 나 : 상대;
+  var 현재코스트 = Number(객체.코스트.textContent);
+  if (현재코스트 < 데이터.cost) {
+    return 'end';
+  }
   var idx = 객체.덱data.indexOf(데이터);
   객체.덱data.splice(idx, 1);
   객체.필드data.push(데이터);
@@ -39,7 +47,7 @@ function 덱에서필드로(데이터, 내턴) {
   객체.코스트.textContent = 현재코스트 - 데이터.cost;
 }
 
-function 카드돔연결(데이터, 돔, 영웅) {
+function 카드돔연결(데이터, 돔, 영웅) { // 데이터는 카드객체
   var 카드 = document.querySelector('.card-hidden .card').cloneNode(true);
   카드.querySelector('.card-cost').textContent = 데이터.cost;
   카드.querySelector('.card-att').textContent = 데이터.att;
@@ -50,27 +58,46 @@ function 카드돔연결(데이터, 돔, 영웅) {
     이름.textContent = '영웅';
     카드.prepend(이름);
   }
-  카드.addEventListener('click', function () {
+
+  카드.addEventListener('click', function () { // 카드는 엘리먼트 전체
     if (턴) { // 내 턴이면
-      if (!데이터.mine || 데이터.field) { // 상대 카드면
+      if (!데이터.mine) { // 상대 카드면 이고 내카드 선택되어있으면 공격
+        데이터.hp = 데이터.hp - 나.선택카드data.att;
+        나.선택카드.classList.remove('card-selected');
+        나.선택카드.classList.add('card-turnover');
+        나.선택카드 = null;
+        나.선택카드data = null;
+        return;
+      } else if (!데이터.mine) { // 상대 카드면
         return;
       }
-      var 현재코스트 = Number(나.코스트.textContent);
-      if (현재코스트 < 데이터.cost) {
-        return;
+      if (데이터.field) { // 카드가 필드에 있으면
+        카드.parentNode.querySelectorAll('.card').forEach(function (card) {
+          card.classList.remove('card-selected');
+        });
+        카드.classList.add('card-selected');
+        나.선택카드 = 카드;
+        나.선택카드data = 데이터;
+      } else { // 덱에 있으면
+        if (덱에서필드로(데이터, true) !== 'end') {
+          내덱생성(1);
+        }
       }
-      덱에서필드로(데이터, true);
-      내덱생성(1);
     } else { // 상대 턴인데
-      if (데이터.mine || 데이터.field) { // 내카드를 누르면
+      if (데이터.mine) { // 내카드를 누르면
         return;
       }
-      var 현재코스트 = Number(상대.코스트.textContent);
-      if (현재코스트 < 데이터.cost) {
-        return;
+      if (데이터.field) { // 카드가 필드에 있으면
+        카드.parentNode.querySelectorAll('.card').forEach(function (card) {
+          card.classList.remove('card-selected');
+        });
+        카드.classList.add('card-selected');
+        상대.선택카드 = 데이터;
+      } else { // 덱에 있으면
+        if (덱에서필드로(데이터, false) !== 'end') {
+          상대덱생성(1);
+        }
       }
-      덱에서필드로(데이터, false);
-      상대덱생성(1);
     }
   });
   돔.appendChild(카드);

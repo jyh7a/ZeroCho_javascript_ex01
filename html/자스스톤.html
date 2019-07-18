@@ -13,9 +13,11 @@
       vertical-align: top;
       margin-right: 50px;
     }
-    .turn{
+
+    .turn {
       border: 1px solid #000;
     }
+
     #rival {
       vertical-align: bottom;
     }
@@ -91,18 +93,26 @@
       display: none;
     }
 
-    #turn-btn{
+    .card-selected {
+      border: 1px solid #f00;
+    }
+    .card-turnover{
+      background-color: gray;
+    }
+
+    #turn-btn {
       float: right;
       position: relative;
       top: -23px;
     }
 
-    #turn-arrow{      
+    #turn-arrow {
       font-weight: bold;
       color: green;
       font-size: 20px;
       position: absolute;
-      top: 65%; /* 20% */
+      top: 65%;
+      /* 20% */
       right: 0;
     }
   </style>
@@ -122,15 +132,14 @@
   </div>
 
   <hr>
-  <button id="turn-btn">턴넘기기</button> 
-  <div id="turn-arrow"><---</div>
+  <button id="turn-btn">턴넘기기</button>
+  <div id="turn-arrow">
+    <---</div> <div id="my" class="turn">
+      <div id="my-cards" style="height:150px">
 
-  <div id="my" class="turn">
-    <div id="my-cards" style="height:150px">
-
-    </div>
-    <div id="my-hero"></div>
-    <div>코스트: <span id="my-cost">10</span>/<span>10</span></div>
+      </div>
+      <div id="my-hero"></div>
+      <div>코스트: <span id="my-cost">10</span>/<span>10</span></div>
   </div>
   <div id="my-deck">
     <div>덱</div>
