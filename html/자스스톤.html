@@ -13,11 +13,13 @@
       vertical-align: top;
       margin-right: 50px;
     }
-    #rival{
+
+    #rival {
       vertical-align: bottom;
     }
 
-    #my-deck, #rival-deck{
+    #my-deck,
+    #rival-deck {
       display: inline-block;
       vertical-align: top;
       width: 200px;
@@ -59,11 +61,13 @@
       font-size: 12px;
       line-height: 15px;
     }
-    .card-cost{
+
+    .card-cost {
       bottom: auto;
       top: 0;
       right: 0;
     }
+
     .card-att {
       left: 0;
     }
@@ -84,75 +88,47 @@
         <div class="card-att">5</div>
         <div class="card-hp">10</div>
       </div>
-    </div>   
-    <div id="rival-cards">
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
+    </div>
+    <div id="rival-cards" style="height:150px">
+
     </div>
   </div>
   <div id="rival-deck">
-      <div>덱</div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
+    <div>덱</div>
+    <div class="card">
+      <div class="card-cost">2</div>
+      <div class="card-att">5</div>
+      <div class="card-hp">10</div>
+    </div>
+    <div class="card">
+      <div class="card-cost">2</div>
+      <div class="card-att">5</div>
+      <div class="card-hp">10</div>
+    </div>
+    <div class="card">
+      <div class="card-cost">2</div>
+      <div class="card-att">5</div>
+      <div class="card-hp">10</div>
+    </div>
+    <div class="card">
+      <div class="card-cost">2</div>
+      <div class="card-att">5</div>
+      <div class="card-hp">10</div>
+    </div>
+    <div class="card">
+      <div class="card-cost">2</div>
+      <div class="card-att">5</div>
+      <div class="card-hp">10</div>
+    </div>
   </div>
 
   <hr>
 
   <div id="my">
-    <div id="my-cards">
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
-      <div class="card">
-        <div class="card-cost">2</div>
-        <div class="card-att">5</div>
-        <div class="card-hp">10</div>
-      </div>
+    <div id="my-cards" style="height:150px">
+
     </div>
-    <div id="my-hero">     
+    <div id="my-hero">
       <div class="card">
         <div class="card-name">내 영웅</div>
         <div class="card-att">5</div>
@@ -190,6 +166,13 @@
     </div>
   </div>
 
+  <div class="card-hidden">
+    <div class="card">
+      <div class="card-cost"></div>
+      <div class="card-att"></div>
+      <div class="card-hp"></div>
+    </div>
+  </div>
   <script src="../js/자스스톤.js"></script>
 
 </body>
