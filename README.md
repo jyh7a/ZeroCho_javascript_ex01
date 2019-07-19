@@ -25,7 +25,7 @@ document.getElementById('rival').classList.toggle('turn');<br>
 13-1<br>
 createDocumentFragment() : DocumentFragment는 다른 노드를 담는 임시 컨테이너 역할을 하는 특수 목적의 노드이다. 가상의 노드 객체로서, 메모리상에서만 존재하는 비 문서 탬플릿으로 생각하면 된다. parentNode 프로퍼티는 항상 null이다. 하지만 Element처럼, appendChild()와 insertBefore() 등으로 조작할 수 있는 자손 객체를 가질 수 있다.<br>
 출처: https://iamawebdeveloper.tistory.com/64 [나는 웹개발자!]<br>
-cf. var fragment = document.createDocumentFragment();<br>
+cf. var fragment = document.createDocumentFragment();<br><br>
 
 table 태그안에 tbody태그가 들어있는지 확인하자( chrome, IE 브라우저 차이일것이다)<br>
 
