@@ -28,9 +28,14 @@ createDocumentFragment() : DocumentFragment는 다른 노드를 담는 임시 �
 cf. var fragment = document.createDocumentFragment();<br><br>
 
 table 태그안에 tbody태그가 들어있는지 확인하자( chrome, IE 브라우저 차이일것이다)<br>
-
-
-
 <hr>
+
+13-2<br>
+screenX: 모니터 기준좌표<br>
+pageX: 페이지(스크롤 포함)<br>
+clientX: 브라우저 화면 기준<br>
+offsetX: 이벤트 타겟 기준<br>
+
+
 
 
