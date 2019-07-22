@@ -1,6 +1,8 @@
 var 테이블 = document.getElementById('table');
 var 데이터 = [];
 var 점수표 = document.getElementById('score');
+var go = true;
+var and = false;
 
 function 초기화() {
   var fragment = document.createDocumentFragment();
@@ -29,7 +31,8 @@ function 랜덤생성() {
     });
   });
   if (빈칸배열.length === 0) {
-    alert('게임오버 ' + 점수표.textContent);
+    alert('게임오버: ' + 점수표.textContent);
+    테이블.innerHTML = '';
     초기화();
   } else {
     var 랜덤칸 = 빈칸배열[Math.floor(Math.random() * 빈칸배열.length)];
@@ -103,7 +106,13 @@ window.addEventListener('mouseup', function (이벤트) {
         열데이터.forEach(function (행데이터, j) {
           if (행데이터) {
             if (새데이터[i][새데이터[i].length - 1] && 새데이터[i][새데이터[i].length - 1] === 행데이터) {
-              새데이터[i][새데이터[i].length - 1] *= 2;
+              if (go) {
+                새데이터[i][새데이터[i].length - 1] *= 2;
+                go = false;
+              } else {
+                새데이터[i].push(행데이터);
+                go = true;
+              }
               var 현점수 = parseInt(점수표.textContent, 10);
               점수표.textContent = 현점수 + 새데이터[i][새데이터[i].length - 1];
             } else {
@@ -111,6 +120,7 @@ window.addEventListener('mouseup', function (이벤트) {
             }
           }
         });
+        go = true;
       });
       console.log(새데이터);
       [1, 2, 3, 4].forEach(function (열데이터, i) {
@@ -131,7 +141,13 @@ window.addEventListener('mouseup', function (이벤트) {
         열데이터.forEach(function (행데이터, j) {
           if (행데이터) {
             if (새데이터[i][0] && 새데이터[i][0] === 행데이터) {
-              새데이터[i][0] *= 2;
+              if (go) {
+                새데이터[i][0] *= 2;
+                go = false;
+              } else {
+                새데이터[i].unshift(행데이터);
+                go = true;
+              }
               var 현점수 = parseInt(점수표.textContent, 10);
               점수표.textContent = 현점수 + 새데이터[i][0];
             } else {
@@ -139,6 +155,7 @@ window.addEventListener('mouseup', function (이벤트) {
             }
           }
         });
+        go = true;
       });
       console.log(새데이터);
       [1, 2, 3, 4].forEach(function (열데이터, i) {
@@ -147,7 +164,7 @@ window.addEventListener('mouseup', function (이벤트) {
         });
       });
       break;
-    case '아래쪽':
+    case '아래쪽':          
       and = false;
       go = true;
       this.console.log('아래쪽');
@@ -157,8 +174,8 @@ window.addEventListener('mouseup', function (이벤트) {
         [],
         []
       ];
-      데이터.forEach(function (열데이터, i) {
-        열데이터.forEach(function (행데이터, j) {
+      데이터.forEach(function(열데이터, i) {
+        열데이터.forEach(function(행데이터, j) {
           if (행데이터) {
             if (새데이터[j][0] && 새데이터[j][0] === 행데이터) {
               새데이터[j][0] *= 2;
