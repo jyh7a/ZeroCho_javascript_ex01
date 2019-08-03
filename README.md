@@ -34,7 +34,16 @@ table 태그안에 tbody태그가 들어있는지 확인하자( chrome, IE 브�
 screenX: 모니터 기준좌표<br>
 pageX: 페이지(스크롤 포함)<br>
 clientX: 브라우저 화면 기준<br>
-offsetX: 이벤트 타겟 기준<br>
+offsetX: 이벤트 타겟 기준
+
+<hr>
+
+14-2<br>
+keyup : 눌렀다가 땔때 한번만 발생
+keydown : 누르고 있으면 계속 발생
+keypress : window.addeventListener() 에서 왜 안될까?
+=> keypress 에서 e 벤트 객체는 화살표및 몇개의 키가 안먹는다.
+
 
 
 
