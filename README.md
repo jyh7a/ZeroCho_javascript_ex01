@@ -39,11 +39,16 @@ offsetX: 이벤트 타겟 기준
 <hr>
 
 14-2<br>
-keyup : 눌렀다가 땔때 한번만 발생
-keydown : 누르고 있으면 계속 발생
-keypress : window.addeventListener() 에서 왜 안될까?
-=> keypress 에서 e 벤트 객체는 화살표및 몇개의 키가 안먹는다.
+keyup : 눌렀다가 땔때 한번만 발생<br>
+keydown : 누르고 있으면 계속 발생<br>
+keypress : window.addeventListener() 에서 왜 안될까?<br>
+=> keypress 에서 e 벤트 객체는 화살표및 몇개의 키가 안먹는다.<br>
 
+<hr>
+
+14-8<br>
+Array.from(row.children) => HTMLcollection 같은 itterationObject => array로 바꿔준다<br>
+결과적으로 rray.from(row.children).forEach 사용가능<br>
 
 
 
