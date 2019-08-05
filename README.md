@@ -1,6 +1,7 @@
 # javascript
  vs코드 단축키 <br>
  단축키 홈페이지 : https://demun.github.io/vscode-tutorial/shortcuts/ <br>
+ shift+alt+a<br>
  영역접기 ctrl + shift + [ <br>
  영역펼치기 ctrl + shift + ] <br>
  ctrl+k ctrl+0	모든 영역 접기 <br>
